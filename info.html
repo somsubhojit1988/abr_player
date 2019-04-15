@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DASH Player</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="shaka-player/dist/shaka-player.compiled.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+      body {
+        padding-top: 5%;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Streaming Video player</h1>
+      <p>Powered by Google Shaka player</p>
+
+
+      <form class="example">
+        <input id ="manifest_url" type="text" placeholder="Enter video url" name="play_url" style="width:50%" >
+        <button type="submit" id = "url_submit"><i class="fa fa-play-circle"></i></button>
+      </form>
+      </br>
+      </br>
+      </br>
+
+      <div class = "row">
+        <div class = "col">
+          <video id = "video"
+                 poster="https://shaka-player-demo.appspot.com/assets/poster.jpg"
+                 width="500" controls  autoplay >
+
+        </div>
+
+        <!-- stats card -->
+        <div class="col card" style="width: 18rem;">
+          <h3>Playback stats</h3>
+          <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+              <div class="row">
+                <h6 class = "col-5">Available audio tracks</h6>
+                <p  id="audio-tracks" class = "col-7"></p>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="row">
+                <h6 class = "col-5">Available subtitle tracks</h6>
+                <p  id="subtitle-tracks" class = "col-7"></p>
+              </div>
+            </li>
+
+
+            <li class="list-group-item">
+              <div class="row">
+              <h6 class = "col-5">Current/Optimal resolution</h6>
+              <p id="resolution-info" class = "col-7"> </p>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="row">
+              <h6 class = "col-5">Audio/Video Codecs</h6>
+              <p  id="codec-info" class = "col-7"></p>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="row">
+              <h6 class = "col-5">Play vs Buffering time</h6>
+              <p id="play-vs-buffer-time" class = "col-7"></p>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="row">
+              <h6 class = "col-5">Ntwk Bandwidth</h6>
+              <p id="ntwk-info" class = "col-7"></p>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="row">
+              <h6 class = "col-5">Dropped frames</h6>
+              <p id="frame-drop-info" class = "col-7"></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      </br>
+      </br>
+      </br>
+      <!-- <p id="error-msg"></p> -->
+      <div class="card" style="width: 31rem;" id="error-card">
+        <div class="card-body">
+          <h5 class="card-title" style="color:red">Error Message</h5>
+          <p id = "error-msg" class="card-text"></p>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
